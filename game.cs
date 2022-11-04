@@ -1,4 +1,3 @@
-"# console-game" 
 using System;
 using System.Collections.Generic;
 
@@ -11,7 +10,7 @@ namespace ClassLibary4
 
         static void Main(string[] args)
         {
-            
+
             Console.ForegroundColor = ConsoleColor.DarkBlue;
             Console.BackgroundColor = ConsoleColor.DarkGray;
 
@@ -21,7 +20,7 @@ namespace ClassLibary4
                 Random rnd = new Random();
                 bool OG = false; //orange juice
                 List<String> p_has = new List<String>();
-                int edgication = 0;
+                int education = 0;
                 String job = null;
                 float money = 0.0f;
                 float Energy = 10;
@@ -52,14 +51,15 @@ namespace ClassLibary4
 
                 void todo()
                 {
+                    System.Threading.Thread.Sleep(1000);
                     if (Energy <= 0)
                     {
                         raise = 0f;
-                        edgication = 0;
+                        education = 0;
                         job = null;
                         money = 0f;
                         Energy = 10;
-                        
+
                         Console.Write("you have died, you need to watch your Energy you have lost everything :( better luck next time, wanna play again?");
                         String PA = Console.ReadLine();
                         if (PA == "yes")
@@ -105,7 +105,7 @@ namespace ClassLibary4
                 //im puting it here so it doesnt have to process the intire thing every time and clean some code :)
 
 
-                
+
 
 
                 void shop()
@@ -117,10 +117,10 @@ namespace ClassLibary4
                     Console.Write("\na  Donut (+2 comfidence)");  //anything u want in the shop just say in chat :)
 
                     String O_shop = Console.ReadLine(); //o stands for option
-                     
+
                     if (O_shop == "milk  (Gain 5 energy points)")
                     {
-                        
+
                         if (money >= 260)
                         {
                             p_has.Add("milk");
@@ -129,7 +129,7 @@ namespace ClassLibary4
                             todo();
                         }
                         else { Console.Write("you dont have enough money, you need atleast 260 shmiols to purchess this item"); todo(); }
-                        
+
                     }
                     else if (O_shop == "orange juice (if used and then you go to sleep you will wake up with 15 Energy!!)")
                     {
@@ -151,11 +151,11 @@ namespace ClassLibary4
                             money -= 200;
                             todo();
                         }
-                        else { Console.Write("you dont have enough money, you need atleast 200 shmiols to purchess this item"); todo(); }
+                        else  Console.Write("you dont have enough money, you need atleast 200 shmiols to purchess this item"); todo(); 
                     }
-                    
+
                 }
-                
+
 
                 void use(String arg)
                 {
@@ -196,7 +196,8 @@ namespace ClassLibary4
                                 todo();
                             }
                         }
-                        else{
+                        else
+                        {
                             todo();
 
                         }
@@ -204,127 +205,128 @@ namespace ClassLibary4
                 }
 
 
-                void relaxe() {
-                    
-                        Energy = 10;
-                        Console.WriteLine("\n Energy has been restored");
-                        todo();
-                    
-                } 
+                void relaxe()
+                {
+                    Console.WriteLine("\n relaxing...");
+                    System.Threading.Thread.Sleep(2000);
+                    Energy = 10;
+                    Console.WriteLine("\n Energy has been restored");
+                    todo();
+
+                }
 
 
 
-                void N_job() {
-                    
-                        Energy -= 1;
-                        Console.Write("what job would u like? (keep in mind you need to have certian amount of edicuation to get certian jobs)");
-                        Console.WriteLine("doctor");
-                        Console.WriteLine("programmer");
-                        Console.WriteLine("3d moddler");
-                        Console.WriteLine("office worker");
-                        Console.WriteLine("");
-                        String M_job = Console.ReadLine(); //m stands for maybe, so its maybe job it might be that would be their job
+                void N_job()
+                {
 
-                        if (M_job == "doctor")
+                    Energy--;
+                    Console.Write("what job would u like? (keep in mind you need to have certian amount of edicuation to get certian jobs)");
+                    Console.WriteLine("doctor");
+                    Console.WriteLine("programmer");
+                    Console.WriteLine("3d moddler");
+                    Console.WriteLine("office worker");
+                    Console.WriteLine("");
+                    String M_job = Console.ReadLine(); //m stands for maybe, so its maybe job it might be that would be their job
+
+                    if (M_job == "doctor")
+                    {
+                        if (education >= 35)
                         {
-                            if (edgication >= 35)
-                            {
-                                job = M_job;
-                                Console.WriteLine("you got the job!");
-                                todo();
-                            }
-                            else { Console.WriteLine("you dont have enough edgication, you need atleast 35 edgication points to get this job maybe next time"); todo(); }
+                            job = M_job;
+                            Console.WriteLine("you got the job!");
+                            todo();
                         }
-                        else if (M_job == "programmer")
+                        else { Console.WriteLine("you dont have enough education, you need atleast 35 education points to get this job maybe next time"); todo(); }
+                    }
+                    else if (M_job == "programmer")
+                    {
+                        if (education >= 25)
                         {
-                            if (edgication >= 25)
-                            {
-                                job = M_job;
-                                Console.WriteLine("you got the job!");
-                                todo();
-                            }
-                            else { Console.WriteLine("you dont have enough edgication, you need atleast 25 edgication points to get this job maybe next time"); todo(); }
+                            job = M_job;
+                            Console.WriteLine("you got the job!");
+                            todo();
                         }
-                        else if (M_job == "3d moddler")
+                        else { Console.WriteLine("you dont have enough education, you need atleast 25 education points to get this job maybe next time"); todo(); }
+                    }
+                    else if (M_job == "3d moddler")
+                    {
+                        if (education >= 25)
                         {
-                            if (edgication >= 25)
-                            {
-                                job = M_job;
-                                Console.WriteLine("you got the job!");
-                                todo();
-                            }
-                            else { Console.WriteLine("you dont have enough edgication, you need atleast 25 edgication points to get this job maybe next time"); todo(); }
+                            job = M_job;
+                            Console.WriteLine("you got the job!");
+                            todo();
                         }
-                        else if (M_job == "office worker")
+                        else { Console.WriteLine("you dont have enough education, you need atleast 25 education points to get this job maybe next time"); todo(); }
+                    }
+                    else if (M_job == "office worker")
+                    {
+                        if (education >= 10)
                         {
-                            if (edgication >= 10)
-                            {
-                                job = M_job;
-                                Console.WriteLine("you got the job!");
-                                todo();
-                            }
-                            else { Console.WriteLine("you dont have enough edgication, you need atleast 10 edgication points to get this job maybe next time"); todo(); }
+                            job = M_job;
+                            Console.WriteLine("you got the job!");
+                            todo();
                         }
-                    
+                        else { Console.WriteLine("you dont have enough education, you need atleast 10 education points to get this job maybe next time"); todo(); }
+                    }
+
                 }
 
                 void work()
                 {
 
-                    
-                        Energy -= 1;
-                        if (job == null)
-                        {
-                            Console.WriteLine("you have no job");
-                            todo();
-                        }
-                        else if (job == "doctor")
-                        {
+
+                    Energy--;
+
+
+                    switch (job)
+                    {
+                        case "doctor":
                             money += 200f + raise;
                             Console.WriteLine("i have gained 200 shmiols");
                             todo();
-                        }
-                        else if (job == "programmer")
-                        {
+                            break;
+                        case "programmer":
                             money += 100f + raise;
                             Console.WriteLine("i have gained 100 shmiols");
                             todo();
-                        }
-                        else if (job == "moddeler")
-                        {
+                            break;
+                        case "moddeler":
                             money += 100f + raise;
                             Console.WriteLine("i have gained 100 shmiols");
                             todo();
-                        }
-                        else if (job == "office worker")
-                        {
+                            break;
+                        case "office worker":
                             money += 50f + raise;
                             Console.WriteLine("i have gained 50 shmiols");
                             todo();
-                 }
-                    
+                            break;
+                        default:
+                            Energy++;
+                            Console.WriteLine("you have no job");
+                            todo();
+                            break;
+                    }
+
                 }
 
                 void learn()
                 {
-                    
-                    
-                        edgication += 1;
-                        Console.WriteLine("you have learnt, your edication has gone up by 1");
-                        Energy -= 1;
-                        todo();
-                       }
-                   
+                    Console.WriteLine("\n learning...");
+                    System.Threading.Thread.Sleep(3500);
+                    education += 1;
+                    Console.WriteLine("you have learnt, your edication has gone up by 1");
+                    Energy -= 1;
+                    todo();
                 }
 
-                
-                
+            }
+
+
+
 
             simulation();
-            Console.ReadLine(); 
+            Console.ReadLine();
         }
     }
 }
-
-
-
